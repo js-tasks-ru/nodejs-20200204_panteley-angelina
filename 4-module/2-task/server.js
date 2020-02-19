@@ -19,6 +19,7 @@ server.on('request', (req, res) => {
   switch (req.method) {
     case 'POST':
       if(req.headers['content-length'] === '0') {
+        res.statusCode = 409;
         res.end('Request body is empty');
         return;
       }
